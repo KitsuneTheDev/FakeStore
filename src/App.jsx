@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react';
 import './App.css'
+import { useSelector, useDispatch } from 'react-redux'; 
+import { fetchProductsToStore } from './redux/slices/productSlice.js';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
+  const [savedProducts, setSavedProducts] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsToStore()).then((result) => {
+      if(result.payload) {
+        console.log(result.payload);
+        setSavedProducts(result.payload);
+      } else {
+        console.error(result);
+      }
+    });
+  }, [dispatch])
+
+  const { loading, products, error } = useSelector((state) => state.productReducer);
+
+  if(loading){
+    return(
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Loading...</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    );
+  } else if(error) {
+    return(
+      <div>
+        <h1>{error}</h1>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  } else {
+    console.log(savedProducts);
+    return( 
+      <div>
+        <h1>DEMO</h1>
+      </div>
+    );
+  }
 }
 
 export default App
