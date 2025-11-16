@@ -25,7 +25,7 @@ export const fetchProductsToStore = createAsyncThunk(
 );
 
 const productSlice = createSlice({
-    name: "user",
+    name: "products",
     initialState,
     reducers: {
     // REDUCERS HERE
