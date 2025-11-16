@@ -6,3 +6,35 @@
 .antHomeLayout{
     height: 100%;
 }
+
+.antHomeLayout h1{
+    color: white;
+    font-size: 24px;
+}
+
+.antSider{
+    padding-left: 8px;
+}
+
+.header{
+    padding: 0
+}
+
+.headerTextContainer{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header h1{
+    margin: 0;
+    padding: 0 0 16px 16px;
+    height: 100%;
+}
+
+.content{
+    padding: 0;
+    margin: 0;
+    padding: 16px;
+    overflow-y: scroll;
+}
