@@ -14,7 +14,7 @@ export default function Home() {
     console.log(collapsed);
     return (
     <div className={styles.homeContainer}>
-        <Layout className={styles.antHomeLayout}>
+        <Layout>
             <Sider trigger={null} collapsible collapsed={collapsed} className={styles.antSider} >
                 <div style={{display: 'flex', alignItems: 'center', paddingTop: '16px', paddingLeft: '16px'}}>
                     <img src="/images/kitsuLogo.png" alt="site logo" width={40} />
