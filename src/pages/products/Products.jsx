@@ -13,7 +13,7 @@ export default function Products() {
     useEffect(() => {
         dispatch(fetchProductsToStore()).then((result) => {
             if(result.payload) {
-                console.log(result.payload);
+                // console.log(result.payload);
             } else {
                 console.error(result);
             }
@@ -34,7 +34,7 @@ export default function Products() {
         );
     }
 
-    console.log(products);
-
-    return products.map((product, index) => <ProductCard product={product} key={index} />);
+    return( 
+        products.map((product, index) => <ProductCard product={product} key={index} />)
+    );
 }

@@ -1,6 +1,6 @@
 html{
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,7 +17,17 @@ body{
 #root{
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #001529;
+    border-radius: 5px 5px 5px 5px;
 }
